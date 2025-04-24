@@ -2,11 +2,11 @@ using System.Reflection;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
-using DiscordBot.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using SocialDeductionSystem.DiscordBot.Interfaces;
 
-namespace DiscordBot.Services;
+namespace SocialDeductionSystem.DiscordBot.Services;
 
 public class PrefixCommandsHandler : ICommandRegistrant, ICommandHandler<SocketMessage>
 {

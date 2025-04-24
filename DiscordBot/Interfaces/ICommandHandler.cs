@@ -1,6 +1,6 @@
 using Discord.WebSocket;
 
-namespace DiscordBot.Interfaces;
+namespace SocialDeductionSystem.DiscordBot.Interfaces;
 
 public interface ICommandHandler<in T> where T : SocketEntity<ulong>
 {

@@ -1,14 +1,11 @@
-using System.Reflection;
 using Discord;
-using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SocialDeductionSystem.DiscordBot.Services;
 
-using DiscordBot.Services;
-
-namespace DiscordBot.Workers;
+namespace SocialDeductionSystem.DiscordBot.Workers;
 
 public class DiscordBotWorker : BackgroundService
 {

@@ -1,17 +1,15 @@
 ﻿using Discord;
 using Discord.WebSocket;
-using DiscordBot.Services;
-using Persistence.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
+using SocialDeductionSystem.DiscordBot.Services;
+using SocialDeductionSystem.DiscordBot.Workers;
+using SocialDeductionSystem.Persistence.Infrastructure;
 
-
-using DiscordBot.Workers;
-using Microsoft.EntityFrameworkCore;
-
-namespace DiscordBot;
+namespace SocialDeductionSystem.DiscordBot;
 
 internal class Program
 {

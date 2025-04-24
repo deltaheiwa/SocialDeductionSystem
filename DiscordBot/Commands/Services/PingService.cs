@@ -1,7 +1,7 @@
 using Discord.WebSocket;
 using Serilog;
 
-namespace DiscordBot.Commands.Services;
+namespace SocialDeductionSystem.DiscordBot.Commands.Services;
 
 public static class PingService
 {

@@ -1,4 +1,4 @@
-namespace DiscordBot.Interfaces;
+namespace SocialDeductionSystem.DiscordBot.Interfaces;
 
 public interface ICommandRegistrant
 {

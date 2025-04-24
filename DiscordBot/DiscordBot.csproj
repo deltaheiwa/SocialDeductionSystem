@@ -7,6 +7,7 @@
         <Nullable>enable</Nullable>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
       <UserSecretsId>b8950830-a0f4-4e0a-92a3-2bc1ea4f32f3</UserSecretsId>
+      <RootNamespace>SocialDeductionSystem.DiscordBot</RootNamespace>
   </PropertyGroup>
 
     <ItemGroup>

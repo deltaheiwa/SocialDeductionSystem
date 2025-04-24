@@ -2,10 +2,10 @@ using System.Reflection;
 using Discord;
 using Discord.Interactions;
 using Discord.WebSocket;
-using DiscordBot.Interfaces;
 using Microsoft.Extensions.Logging;
+using SocialDeductionSystem.DiscordBot.Interfaces;
 
-namespace DiscordBot.Services;
+namespace SocialDeductionSystem.DiscordBot.Services;
 
 public class SlashCommandsHandler : ICommandRegistrant, ICommandHandler<SocketInteraction>
 {

@@ -1,7 +1,7 @@
 using Discord.Commands;
-using DiscordBot.Commands.Services;
+using SocialDeductionSystem.DiscordBot.Commands.Services;
 
-namespace DiscordBot.Commands.Prefix;
+namespace SocialDeductionSystem.DiscordBot.Commands.Prefix;
 
 public class InfoCog : ModuleBase<SocketCommandContext>
 {

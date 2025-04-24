@@ -1,8 +1,7 @@
-using Discord.Commands;
 using Discord.Interactions;
-using DiscordBot.Commands.Services;
+using SocialDeductionSystem.DiscordBot.Commands.Services;
 
-namespace DiscordBot.Commands.Slash;
+namespace SocialDeductionSystem.DiscordBot.Commands.Slash;
 
 public class InfoCog : InteractionModuleBase<SocketInteractionContext>
 {
