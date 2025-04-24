@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Persistence.Models;
+namespace SocialDeductionSystem.Persistence.Models;
 
 public class RoleEntity
 {

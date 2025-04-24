@@ -1,4 +1,4 @@
-namespace Persistence.Models;
+namespace SocialDeductionSystem.Persistence.Models;
 
 public class RoleConfigurationEntity
 {
