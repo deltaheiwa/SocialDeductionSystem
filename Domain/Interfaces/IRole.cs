@@ -1,6 +1,6 @@
-namespace Domain.Interfaces;
+namespace SocialDeductionSystem.Domain.Interfaces;
 
-public interface IRole
+public interface IRole : IPhaseLogic
 {
     
 }
