@@ -1,4 +1,4 @@
-using SocialDeductionSystem.Domain.ValueObjects.Ids;
+using SocialDeductionSystem.Domain.ValueObjects;
 
 namespace SocialDeductionSystem.Domain.Attributes;
 

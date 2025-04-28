@@ -1,4 +1,4 @@
-namespace SocialDeductionSystem.Domain.Enums;
+namespace SocialDeductionSystem.Domain.ValueObjects.Enums.Role;
 
 public enum CommonAlignmentType
 {

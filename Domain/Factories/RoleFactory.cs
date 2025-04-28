@@ -3,8 +3,9 @@ using Microsoft.Extensions.Logging;
 using SocialDeductionSystem.Domain.Attributes;
 using SocialDeductionSystem.Domain.Interfaces;
 using SocialDeductionSystem.Domain.Interfaces.External.Factories;
-using SocialDeductionSystem.Domain.ValueObjects.Ids;
-using SocialDeductionSystem.Domain.ValueObjects.Ids.Comparers;
+using SocialDeductionSystem.Domain.Interfaces.Role;
+using SocialDeductionSystem.Domain.ValueObjects;
+using SocialDeductionSystem.Domain.ValueObjects.Comparers;
 
 namespace SocialDeductionSystem.Domain.Factories;
 

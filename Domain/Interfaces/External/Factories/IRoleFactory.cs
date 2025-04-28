@@ -1,3 +1,5 @@
+using SocialDeductionSystem.Domain.Interfaces.Role;
+
 namespace SocialDeductionSystem.Domain.Interfaces.External.Factories;
 
 /// <summary>

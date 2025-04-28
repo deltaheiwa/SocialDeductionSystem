@@ -1,4 +1,4 @@
-namespace SocialDeductionSystem.Domain.ValueObjects.Ids.Comparers;
+namespace SocialDeductionSystem.Domain.ValueObjects.Comparers;
 
 public class RoleIdOrdinalIgnoreCaseComparer : IEqualityComparer<RoleId>
 {

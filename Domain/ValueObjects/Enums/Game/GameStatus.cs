@@ -1,4 +1,4 @@
-namespace SocialDeductionSystem.Domain.Enums;
+namespace SocialDeductionSystem.Domain.ValueObjects.Enums.Game;
 
 public enum GameStatus
 {
