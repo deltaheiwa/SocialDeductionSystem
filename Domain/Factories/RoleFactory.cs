@@ -1,6 +1,7 @@
 using System.Reflection;
 using Microsoft.Extensions.Logging;
 using SocialDeductionSystem.Domain.Attributes;
+using SocialDeductionSystem.Domain.Attributes.Ids;
 using SocialDeductionSystem.Domain.Interfaces;
 using SocialDeductionSystem.Domain.Interfaces.External.Factories;
 using SocialDeductionSystem.Domain.Interfaces.Role;

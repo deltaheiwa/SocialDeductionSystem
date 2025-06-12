@@ -2,7 +2,7 @@ namespace SocialDeductionSystem.Domain.ValueObjects.Comparers;
 
 public class RoleIdOrdinalIgnoreCaseComparer : IEqualityComparer<RoleId>
 {
-    public static RoleIdOrdinalIgnoreCaseComparer Instance { get; } = new RoleIdOrdinalIgnoreCaseComparer();
+    public static RoleIdOrdinalIgnoreCaseComparer Instance { get; } = new();
     
     public bool Equals(RoleId x, RoleId y)
     {

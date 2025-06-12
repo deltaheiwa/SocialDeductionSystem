@@ -1,6 +1,6 @@
 using SocialDeductionSystem.Domain.ValueObjects;
 
-namespace SocialDeductionSystem.Domain.Attributes;
+namespace SocialDeductionSystem.Domain.Attributes.Ids;
 
 
 [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
