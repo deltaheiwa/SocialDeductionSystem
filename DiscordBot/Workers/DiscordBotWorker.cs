@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SocialDeductionSystem.DiscordBot.Services;
+using SocialDeductionSystem.DiscordBot.Services.Handlers;
 
 namespace SocialDeductionSystem.DiscordBot.Workers;
 

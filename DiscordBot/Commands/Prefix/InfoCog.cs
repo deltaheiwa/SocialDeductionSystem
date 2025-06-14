@@ -1,5 +1,5 @@
 using Discord.Commands;
-using SocialDeductionSystem.DiscordBot.Commands.Services;
+using SocialDeductionSystem.DiscordBot.Commands.Common;
 
 namespace SocialDeductionSystem.DiscordBot.Commands.Prefix;
 
@@ -9,6 +9,6 @@ public class InfoCog : ModuleBase<SocketCommandContext>
     [Summary("Replies with Pong!")]
     public async Task PingAsync()
     {
-        await ReplyAsync(PingService.GetPingMessage(Context.Client));
+        await ReplyAsync(PingHelper.GetPingMessage(Context.Client));
     }
 }

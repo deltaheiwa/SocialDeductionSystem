@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using SocialDeductionSystem.DiscordBot.Interfaces;
 
-namespace SocialDeductionSystem.DiscordBot.Services;
+namespace SocialDeductionSystem.DiscordBot.Services.Handlers;
 
 public class PrefixCommandsHandler : ICommandRegistrant, ICommandHandler<SocketMessage>
 {

@@ -1,9 +1,9 @@
 using Discord.WebSocket;
 using Serilog;
 
-namespace SocialDeductionSystem.DiscordBot.Commands.Services;
+namespace SocialDeductionSystem.DiscordBot.Commands.Common;
 
-public static class PingService
+public static class PingHelper
 {
     public static string GetPingMessage(DiscordSocketClient client)
     {

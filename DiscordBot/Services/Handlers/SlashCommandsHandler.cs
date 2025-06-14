@@ -5,7 +5,7 @@ using Discord.WebSocket;
 using Microsoft.Extensions.Logging;
 using SocialDeductionSystem.DiscordBot.Interfaces;
 
-namespace SocialDeductionSystem.DiscordBot.Services;
+namespace SocialDeductionSystem.DiscordBot.Services.Handlers;
 
 public class SlashCommandsHandler : ICommandRegistrant, ICommandHandler<SocketInteraction>
 {

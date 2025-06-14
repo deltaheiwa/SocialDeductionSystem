@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using SocialDeductionSystem.DiscordBot.Services;
+using SocialDeductionSystem.DiscordBot.Services.Handlers;
 using SocialDeductionSystem.DiscordBot.Workers;
 using SocialDeductionSystem.Persistence.Infrastructure;
 
