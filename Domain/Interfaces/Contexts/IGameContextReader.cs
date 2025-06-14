@@ -1,11 +1,10 @@
-using SocialDeductionSystem.Domain.Interfaces;
 using SocialDeductionSystem.Domain.Interfaces.Player;
 using SocialDeductionSystem.Domain.ValueObjects;
 using SocialDeductionSystem.Domain.ValueObjects.Enums.Game;
 using SocialDeductionSystem.Domain.ValueObjects.Enums.Player;
 using SocialDeductionSystem.Domain.ValueObjects.Records;
 
-namespace SocialDeductionSystem.Domain.Contexts;
+namespace SocialDeductionSystem.Domain.Interfaces.Contexts;
 
 public interface IGameContextReader
 {

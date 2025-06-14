@@ -1,3 +1,4 @@
+using SocialDeductionSystem.Domain.Interfaces.Events;
 using SocialDeductionSystem.Domain.ValueObjects;
 
 namespace SocialDeductionSystem.Domain.Events;

@@ -4,7 +4,7 @@ using SocialDeductionSystem.Domain.ValueObjects;
 
 namespace SocialDeductionSystem.Domain.Interfaces.Role;
 
-public interface IRole : IPhaseLogic
+public interface IRole
 {
     RoleId RoleId { get; }
     string Name { get; }
