@@ -1,12 +1,12 @@
 namespace SocialDeductionSystem.Domain.ValueObjects;
 
-public readonly record struct GameId(Guid value) { public GameId() : this(Guid.NewGuid()) { } }
+public readonly record struct GameId(Guid Value) { public GameId() : this(Guid.NewGuid()) { } }
 
-public readonly record struct PlayerId(Guid value) { public PlayerId() : this(Guid.NewGuid()) { } }
+public readonly record struct PlayerId(Guid Value) { public PlayerId() : this(Guid.NewGuid()) { } }
 
-public readonly record struct RoleId(string roleId)
+public readonly record struct RoleId(string Value)
 {
-    public string Value { get; init; } = ValidateRoleId(roleId);
+    public string Value { get; init; } = ValidateRoleId(Value);
     private static string ValidateRoleId(string roleId) { 
         if (string.IsNullOrWhiteSpace(roleId))
             throw new ArgumentException("RoleId cannot be null or whitespace.", nameof(roleId));
@@ -18,9 +18,9 @@ public readonly record struct RoleId(string roleId)
     public static implicit operator string(RoleId roleId) => roleId.Value;
 }
 
-public readonly record struct TeamId(string teamId)
+public readonly record struct TeamId(string Value)
 {
-    public string Value { get; init; } = ValidateTeamId(teamId);
+    public string Value { get; init; } = ValidateTeamId(Value);
 
     private static string ValidateTeamId(string teamId)
     {
@@ -34,9 +34,9 @@ public readonly record struct TeamId(string teamId)
     public static implicit operator string(TeamId teamId) => teamId.Value;
 }
 
-public readonly record struct AbilityId(string abilityId)
+public readonly record struct AbilityId(string Value)
 {
-    public string Value { get; init; } = ValidateAbilityId(abilityId);
+    public string Value { get; init; } = ValidateAbilityId(Value);
 
     private static string ValidateAbilityId(string abilityId)
     {
@@ -52,9 +52,9 @@ public readonly record struct AbilityId(string abilityId)
     public static implicit operator string(AbilityId abilityId) => abilityId.Value;
 }
 
-public readonly record struct VariationId(string variationId)
+public readonly record struct VariationId(string Value)
 {
-    public string Value { get; init; } = ValidateVariationId(variationId);
+    public string Value { get; init; } = ValidateVariationId(Value);
 
     private static string ValidateVariationId(string variationId)
     {

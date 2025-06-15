@@ -1,4 +1,5 @@
 using SocialDeductionSystem.Domain.Interfaces.Role;
+using SocialDeductionSystem.Domain.ValueObjects;
 
 namespace SocialDeductionSystem.Domain.Interfaces.External.Factories;
 
@@ -17,5 +18,10 @@ public interface IRoleFactory
     /// <returns>An instance implementing IRole (could be base role or an adapter).</returns>
     /// <exception cref="ArgumentException">Thrown if the roleId is unknown.</exception>
     /// <exception cref="InvalidOperationException">Thrown if role is incompatible with variation.</exception>
-    IRole CreateRole(string roleId, ISdgVariationRuleset variationInfo);
+    IRole CreateRole(RoleId roleId, ISdgVariationRuleset variationInfo);
+    
+    /// <summary>
+    /// Gets all the RoleIds that are associated with a specific VariationId.
+    /// </summary>
+    IEnumerable<RoleId> GetRolesForVariation(VariationId variationId);
 }

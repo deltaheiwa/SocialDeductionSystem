@@ -7,13 +7,15 @@ namespace SocialDeductionSystem.Domain.Attributes.Ids;
 public sealed class RoleIdAttribute : Attribute
 {
     public RoleId RoleId { get; }
+    public VariationId BelongsToVariationId { get; }
 
     /// <summary>
     /// Associates a class implementing IRole with its unique string identifier.
     /// </summary>
     /// <param name="roleId">The unique string identifier.</param>
-    public RoleIdAttribute(RoleId roleId)
+    public RoleIdAttribute(RoleId roleId, VariationId belongsToVariationIdId)
     {
         RoleId = roleId;
+        BelongsToVariationId = belongsToVariationIdId;
     }
 }

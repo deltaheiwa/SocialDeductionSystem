@@ -13,16 +13,43 @@ namespace SocialDeductionSystem.Domain.Factories;
 public class RoleFactory : IRoleFactory
 {
     private readonly ILogger<RoleFactory> _logger;
+    private readonly IReadOnlyDictionary<VariationId, List<RoleId>> _rolesByVariation;
+    private readonly IReadOnlyDictionary<RoleId, Type> _baseRoles;
     
-    public IRole CreateRole(string roleId, ISdgVariationRuleset variationInfo)
+    
+    public RoleFactory(ILogger<RoleFactory> logger)
+    {
+        _logger = logger;
+        var scanResult = ScanForRolesAndAdapters();
+        _rolesByVariation = scanResult.RolesByVariation;
+        _baseRoles = scanResult.BaseRoles;
+    }
+    
+    public IRole CreateRole(RoleId roleId, ISdgVariationRuleset variationInfo)
     {
         throw new NotImplementedException();
     }
-    
-    private (IReadOnlyDictionary<RoleId, Type> BaseRoles, IReadOnlyDictionary<string, IReadOnlyDictionary<string, Type>> Adapters) ScanForRolesAndAdapters()
+
+    public IEnumerable<RoleId> GetRolesForVariation(VariationId variationId)
+    {
+        if (_rolesByVariation.TryGetValue(variationId, out var roles))
+        {
+            return roles.AsReadOnly();
+        }
+        
+        _logger.LogWarning("No roles found for variation '{VariationId}'", variationId);
+        return [];
+    }
+
+    private (
+        IReadOnlyDictionary<RoleId, Type> BaseRoles,
+        IReadOnlyDictionary<string, IReadOnlyDictionary<string, Type>> Adapters, 
+        IReadOnlyDictionary<VariationId, List<RoleId>> RolesByVariation) 
+        ScanForRolesAndAdapters()
     {
         var baseRoles = new Dictionary<RoleId, Type>(RoleIdOrdinalIgnoreCaseComparer.Instance);
         var adapters = new Dictionary<string, Dictionary<string, Type>>(StringComparer.OrdinalIgnoreCase);
+        var rolesByVariation = new Dictionary<VariationId, List<RoleId>>();
         
         var assembliesToScan = AppDomain.CurrentDomain.GetAssemblies()
             .Where(asm => asm.FullName != null &&
@@ -45,14 +72,24 @@ public class RoleFactory : IRoleFactory
                     var roleIdAttr = type.GetCustomAttribute<RoleIdAttribute>();
                     if (roleIdAttr != null)
                     {
+                        // Ensure the RoleId is not already registered
                         if (!baseRoles.TryAdd(roleIdAttr.RoleId, type))
                         {
                             _logger.LogWarning("Duplicate RoleId found: '{RoleId}' mapping to {TypeName} conflicts with existing {ExistingTypeName}",
                                 roleIdAttr.RoleId, type.FullName, baseRoles[roleIdAttr.RoleId].FullName);
                         } else {
+                             // Collect roles by variation
+                             var variationId = roleIdAttr.BelongsToVariationId;
+                             if (!rolesByVariation.ContainsKey(variationId))
+                             {
+                                 rolesByVariation[variationId] = new List<RoleId>();
+                             }
+                             rolesByVariation[variationId].Add(roleIdAttr.RoleId);
                              _logger.LogTrace("Registered Base Role: ID='{RoleId}', Type='{TypeName}'", roleIdAttr.RoleId, type.FullName);
                         }
                     }
+                    
+                    
                     
                     var adapterAttr = type.GetCustomAttribute<RoleAdapterAttribute>();
                     if (adapterAttr != null)
@@ -89,6 +126,6 @@ public class RoleFactory : IRoleFactory
                 kvp => (IReadOnlyDictionary<string, Type>)kvp.Value.AsReadOnly(),
                 StringComparer.OrdinalIgnoreCase
             );
-        return (baseRoles.AsReadOnly(), readOnlyAdapters.AsReadOnly());
+        return (baseRoles.AsReadOnly(), readOnlyAdapters.AsReadOnly(), rolesByVariation.AsReadOnly());
     }
 }
