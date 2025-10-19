@@ -35,7 +35,12 @@ public class Player
     /// <summary>
     /// Set the role of the player.
     /// </summary>
-    public void AssignRole(IRole role) => Role = role;
+    public void AssignRole(IRole role)
+    {
+        Role = role;
+        role.AssignOwnerToAbilities(this);
+        role.AssignOwnerToWinConditions(this);
+    }
     
     /// <summary>
     /// Apply a standardized, systemic effect to the player.

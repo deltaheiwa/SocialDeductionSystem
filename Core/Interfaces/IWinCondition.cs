@@ -7,7 +7,7 @@ public interface IWinCondition
     /// <summary>
     /// Player that owns the win condition.
     /// </summary>
-    public Player Owner { get; set; }
+    Player? Owner { get; set; }
 
     /// <summary>
     /// Register the win condition with the event bus.

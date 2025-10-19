@@ -13,7 +13,7 @@ public abstract class RoleBase : IRole
     public abstract Subalignment Subalignment { get; }
 
     public List<IAbility> Abilities { get; protected set; } = [];
-    public List<IWinCondition> WinConditions { get; protected set; } = [];
+    public abstract List<IWinCondition> WinConditions { get; }
     
     
     public virtual RoleTags LogicalTags { get; } = RoleTags.None;

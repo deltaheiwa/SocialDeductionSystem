@@ -8,7 +8,7 @@ namespace GameData.WinConditions;
 
 public class FactionWinCondition : IWinCondition
 {
-    public required Player Owner { get; set; }
+    public Player? Owner { get; set; }
     private Faction _faction { get; }
     
     public FactionWinCondition(Faction faction)
