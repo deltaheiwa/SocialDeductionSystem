@@ -1,4 +1,6 @@
-namespace Mafia;
+using Core.Interfaces;
+
+namespace Core.Models;
 
 public class Player
 {
@@ -10,7 +12,7 @@ public class Player
     /// <summary>
     /// Role of the player.
     /// </summary>
-    public Role? Role { get; private set; }
+    public IRole? Role { get; private set; }
     
     /// <summary>
     /// Track if the player is alive.
@@ -28,5 +30,5 @@ public class Player
     /// Set the role of the player.
     /// </summary>
     /// <param name="role">The role to assign</param>
-    public void AssignRole(Role role) => Role = role;
+    public void AssignRole(IRole role) => Role = role;
 }

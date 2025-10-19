@@ -1,4 +1,4 @@
-namespace Mafia;
+namespace Core.Enums;
 
 public enum Faction
 {

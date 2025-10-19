@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mafia", "Mafia\Mafia.csproj", "{03774D31-407A-4415-A976-88F31B414BA4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBD}") = "Core", "Core\Core.csproj", "{03774D31-407A-4415-A976-88F31B414BA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBE}") = "GameData", "GameData\GameData.csproj", "{03774D31-407A-4415-A976-88F31B414BA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +10,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{03774D31-407A-4415-A976-88F31B414BA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{03774D31-407A-4415-A976-88F31B414BA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{03774D31-407A-4415-A976-88F31B414BA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{03774D31-407A-4415-A976-88F31B414BA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03774D31-407A-4415-A976-88F31B414BA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03774D31-407A-4415-A976-88F31B414BA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03774D31-407A-4415-A976-88F31B414BA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03774D31-407A-4415-A976-88F31B414BA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal
