@@ -8,17 +8,22 @@ public enum Subalignment
     Investigative,
     Power,
     Protective,
-    Support,
     Citizen,
 
     // Mafia subalignments
     Deception,
+    Head,
+    Espionage,
     Tactical,
+    Goon,
         
     // Neutral subalignments
     Apocalypse,
+    Benign,
+    Chaos,
     Evil,
 
     // Shared subalignments
     Killing,
+    Support,
 }

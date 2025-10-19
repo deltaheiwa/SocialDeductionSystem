@@ -19,15 +19,19 @@ public static class RoleValidator
         [Faction.Mafia] = new HashSet<Subalignment>
         {
             Subalignment.Standard,
+            Subalignment.Head,
             Subalignment.Deception,
             Subalignment.Tactical,
+            Subalignment.Espionage,
             Subalignment.Support,
-            Subalignment.Killing
+            Subalignment.Goon
         },
         [Faction.Neutral] = new HashSet<Subalignment>
         {
             Subalignment.Standard,
             Subalignment.Apocalypse,
+            Subalignment.Benign,
+            Subalignment.Chaos,
             Subalignment.Evil,
             Subalignment.Killing
         },
