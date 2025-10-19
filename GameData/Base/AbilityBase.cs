@@ -10,8 +10,5 @@ public abstract class AbilityBase : IAbility
     public abstract string Name { get; }
     public abstract Player Owner { get; set; }
     public abstract AbilityType Type { get; }
-    public void Register(EventBus eventBus, GameState gameState, IInputProvider inputProvider)
-    {
-        throw new NotImplementedException();
-    }
+    public abstract void Register(EventBus eventBus, GameState gameState, IInputProvider inputProvider);
 }
