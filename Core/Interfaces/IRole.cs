@@ -10,8 +10,10 @@ public interface IRole
     Faction Faction { get; }
     Subalignment Subalignment { get; }
     List<IAbility> Abilities { get; }
+    List<IWinCondition> WinConditions { get; }
     RoleTags LogicalTags { get; }
     List<string> CosmeticTags { get; }
         
     void AssignOwnerToAbilities(Player owner);
+    void AssignOwnerToWinConditions(Player owner);
 }

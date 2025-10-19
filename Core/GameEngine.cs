@@ -11,6 +11,8 @@ public class GameEngine
     private readonly EventBus _eventBus;
     private readonly IInputProvider _inputProvider;
 
+    private readonly HashSet<IWinCondition> _winConditions = new();
+
     public GameEngine(List<string> playerNames, List<IRole> roles, IInputProvider inputProvider)
     {
         _gameState = new GameState();
@@ -37,6 +39,13 @@ public class GameEngine
             {
                 ability.Register(_eventBus, _gameState, _inputProvider);
             }
+            
+            foreach (var winCondition in player.Role?.WinConditions ?? [])
+            {
+                winCondition.Register(_eventBus, _gameState);
+                
+                _winConditions.Add(winCondition);
+            }
         }
 
         _gameState.CurrentPhase = GamePhase.Day;
@@ -55,8 +64,19 @@ public class GameEngine
                     await RunNightPhase();
                     break;
             }
-            CheckWinConditions();
+            foreach (var winCondition in _winConditions)
+            {
+                if (winCondition.CheckGameEnd(_gameState))
+                {
+                    _gameState.CurrentPhase = GamePhase.GameOver;
+                    break;
+                }
+            }
         }
+        
+        var gameOverEvent = new GameOverEvent();
+        
+        await _eventBus.BroadcastAsync(gameOverEvent);
     }
 
     private async Task RunDayPhase()
@@ -94,21 +114,5 @@ public class GameEngine
     {
         // Priority resolution, etc.
         throw new NotImplementedException();
-    }
-
-    private void CheckWinConditions()
-    {
-        var livingPlayers = _gameState.Players.Where(p => p.IsAlive).ToList();
-        var livingMafia = livingPlayers.Count(p => p.Role.Faction == Faction.Mafia);
-        var livingTown = livingPlayers.Count(p => p.Role.Faction == Faction.Town);
-
-        if (livingMafia == 0)
-        {
-            _gameState.CurrentPhase = GamePhase.GameOver;
-        }
-        else if (livingMafia >= livingTown)
-        {
-            _gameState.CurrentPhase = GamePhase.GameOver;
-        }
     }
 }
