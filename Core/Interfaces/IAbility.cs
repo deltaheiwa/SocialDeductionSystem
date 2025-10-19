@@ -11,8 +11,10 @@ public interface IAbility
     
     /// <summary>
     /// Register the ability to the event bus.
-    /// Passive abilities should register to relevant events they are triggered by.
-    /// Active abilities should register to the NightStart event and use IInputProvider to get input.
+    /// <list type="bullet">
+    /// <item><description>Passive abilities should register to relevant events they are triggered by.</description></item>
+    /// <item><description>Active abilities should register to the NightStart event and use IInputProvider to get input.</description></item>
+    /// </list>
     /// </summary>
     /// <param name="eventBus">Event bus to register to</param>
     /// <param name="gameState">Game state object that tracks dynamic game information</param>
