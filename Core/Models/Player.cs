@@ -40,7 +40,7 @@ public class Player
     /// <summary>
     /// Apply a standardized, systemic effect to the player.
     /// </summary>
-    public void ApplyEffect(SystemicEffectType type, int duration, object? metadata = null)
+    public void ApplyEffect(SystemicEffectType type, int duration, IEffectMetadata? metadata = null)
     {
         // TODO: Stacking validation, etc.
         var effect = new StatusEffect(type, duration, metadata);
@@ -53,7 +53,7 @@ public class Player
     /// <remarks>
     /// This method automatically namespaces the effect to prevent clashes.
     /// </remarks>
-    public void ApplyEffect(IAbility sourceAbility, string customEffectName, int duration, object? metadata = null)
+    public void ApplyEffect(IAbility sourceAbility, string customEffectName, int duration, IEffectMetadata? metadata = null)
     {
         if (sourceAbility.Owner.Role == null)
         {

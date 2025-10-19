@@ -1,4 +1,5 @@
 using Core.Enums;
+using Core.Interfaces;
 
 namespace Core.Models;
 
@@ -15,13 +16,13 @@ public class StatusEffect
     private string? _customType { get; }
 
     public int Duration { get; set; }
-    // TODO: object is nono
-    public object? Metadata { get; set; }
+    
+    public IEffectMetadata? Metadata { get; set; }
 
     /// <summary>
     /// Constructor for a SYSTEMIC effect.
     /// </summary>
-    internal StatusEffect(SystemicEffectType type, int duration, object? metadata = null)
+    internal StatusEffect(SystemicEffectType type, int duration, IEffectMetadata? metadata = null)
     {
         _systemicType = type;
         _customType = null;
@@ -32,7 +33,7 @@ public class StatusEffect
     /// <summary>
     /// Constructor for a CUSTOM effect.
     /// </summary>
-    internal StatusEffect(string type, int duration, object? metadata = null)
+    internal StatusEffect(string type, int duration, IEffectMetadata? metadata = null)
     {
         if (string.IsNullOrWhiteSpace(type))
             throw new ArgumentNullException(nameof(type), "Custom effect type cannot be null or empty.");
