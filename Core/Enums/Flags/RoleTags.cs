@@ -8,5 +8,4 @@ public enum RoleTags
 {
     None = 0,
     Unique = 1 << 0,
-    Unconvertible = 1 << 1,
 }
