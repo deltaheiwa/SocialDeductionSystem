@@ -39,6 +39,7 @@ public class Player
     {
         Role = role;
         role.AssignOwnerToAbilities(this);
+        role.AssignOwnerToAttributes(this);
         role.AssignOwnerToWinConditions(this);
     }
     
@@ -60,7 +61,7 @@ public class Player
     /// </remarks>
     public void ApplyEffect(IAbility sourceAbility, string customEffectName, int duration, IEffectMetadata? metadata = null)
     {
-        if (sourceAbility.Owner.Role == null)
+        if (sourceAbility.Owner?.Role == null)
         {
             throw new InvalidOperationException("Ability must have an owner and role to apply an effect.");
         }

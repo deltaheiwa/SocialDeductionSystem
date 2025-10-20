@@ -36,9 +36,11 @@ public class GameEngine
         foreach (var player in _gameState.Players)
         {
             foreach (var ability in player.Role?.Abilities ?? [])
-            {
                 ability.Register(_eventBus, _gameState, _inputProvider);
-            }
+            
+            
+            foreach (var attribute in player.Role?.Attributes ?? [])
+                attribute.Register(_eventBus, _gameState);
             
             foreach (var winCondition in player.Role?.WinConditions ?? [])
             {

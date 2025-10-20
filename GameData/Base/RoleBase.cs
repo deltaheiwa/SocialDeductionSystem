@@ -13,6 +13,7 @@ public abstract class RoleBase : IRole
     public abstract Subalignment Subalignment { get; }
 
     public List<IAbility> Abilities { get; protected set; } = [];
+    public List<IAttribute> Attributes { get; protected set; } = [];
     public abstract List<IWinCondition> WinConditions { get; }
     
     
@@ -28,16 +29,18 @@ public abstract class RoleBase : IRole
     public void AssignOwnerToAbilities(Player owner)
     {
         foreach (var ability in Abilities)
-        {
             ability.Owner = owner;
-        }
+    }
+
+    public void AssignOwnerToAttributes(Player owner)
+    {
+        foreach (var attribute in Attributes)
+            attribute.Owner = owner;
     }
 
     public void AssignOwnerToWinConditions(Player owner)
     {
         foreach (var winCondition in WinConditions)
-        {
             winCondition.Owner = owner;
-        }
     }
 }
