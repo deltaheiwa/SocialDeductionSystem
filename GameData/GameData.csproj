@@ -8,7 +8,6 @@
 
     <ItemGroup>
       <Folder Include="Roles\Mafia\" />
-      <Folder Include="Roles\SharedAbilities\" />
     </ItemGroup>
 
     <ItemGroup>
