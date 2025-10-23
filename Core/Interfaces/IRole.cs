@@ -16,14 +16,18 @@ public interface IRole
     List<IAbility> Abilities { get; }
     
     /// <summary>
-    /// List of PASSIVE abilities (denoted as ATTRIBUTES)
+    /// List of PASSIVE abilities (denoted as ATTRIBUTES).
     /// </summary>
     List<IAttribute> Attributes { get; }
     List<IWinCondition> WinConditions { get; }
     RoleTags LogicalTags { get; }
     List<string> CosmeticTags { get; }
-        
-    void AssignOwnerToAbilities(Player owner);
-    void AssignOwnerToAttributes(Player owner);
-    void AssignOwnerToWinConditions(Player owner);
+    DefenseType BaseDefense { get; }
+    
+    /// <summary>
+    /// Called after a role gets assigned to the player.
+    /// Responsible for setting player's initial state.
+    /// </summary>
+    /// <param name="player">Player object this role gets assigned to</param>
+    void OnAssignment(Player player);
 }

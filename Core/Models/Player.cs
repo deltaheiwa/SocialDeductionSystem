@@ -24,6 +24,11 @@ public class Player
     /// List of active status effects.
     /// </summary>
     public List<StatusEffect> ActiveEffects { get; } = [];
+    
+    /// <summary>
+    /// Current defense level.
+    /// </summary>
+    public DefenseType Defense { get; set; }
 
     public Player(string name)
     {
@@ -38,9 +43,8 @@ public class Player
     public void AssignRole(IRole role)
     {
         Role = role;
-        role.AssignOwnerToAbilities(this);
-        role.AssignOwnerToAttributes(this);
-        role.AssignOwnerToWinConditions(this);
+        
+        role.OnAssignment(this);
     }
     
     /// <summary>
