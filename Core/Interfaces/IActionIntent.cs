@@ -1,3 +1,4 @@
+using Core.Enums;
 using Core.Models;
 
 namespace Core.Interfaces;
@@ -19,6 +20,11 @@ public interface IActionIntent
     /// 0 is the highest priority.
     /// </summary>
     int Priority { get; }
+    
+    /// <summary>
+    /// The visit this action performs when executed.
+    /// </summary>
+    VisitType Visit { get; }
     
     /// <summary>
     /// Executes the action intent within the given game state.
