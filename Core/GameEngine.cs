@@ -114,7 +114,32 @@ public class GameEngine
 
     private async Task ProcessNightActions()
     {
-        // Priority resolution, etc.
-        throw new NotImplementedException();
+        var orderedIntents = _gameState.NightIntents
+            .OrderBy(intent => intent.Priority)
+            .ToList();
+        
+        foreach (var modifier in orderedIntents.OfType<IModifyingIntent>())
+        {
+            modifier.Modify(_gameState);
+        }
+        
+        _gameState.VisitLogs.Clear();
+        var visitIntents = orderedIntents.Where(
+            i => i.Visit != VisitType.None && i.Target != null);
+        
+        foreach (var intent in visitIntents)
+        {
+            _gameState.VisitLogs.Add(new VisitLog(
+                intent.Source, 
+                intent.Target!, 
+                0,
+                intent.Visit
+            ));
+        }
+        
+        foreach (var action in orderedIntents.OfType<IExecutingIntent>())
+        {
+            action.Execute(_gameState);
+        }
     }
 }

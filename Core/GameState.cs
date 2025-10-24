@@ -1,4 +1,5 @@
 using Core.Enums;
+using Core.Interfaces;
 using Core.Models;
 
 namespace Core;
@@ -12,10 +13,8 @@ public class GameState
 
     // This is for persistent effects like the Permatransporter's lines
     public Dictionary<string, object> PersistentEffects { get; } = new();
-        
-    // This is for actions that are registered during the night
-    // I will need to define IActionIntent later, but for now I can just use a generic object store.
-    public List<object> NightIntents { get; } = [];
+    
+    public List<IActionIntent> NightIntents { get; } = [];
 
     /// <summary>
     /// Winners of the game.
